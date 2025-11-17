@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Poli Nemkova – AI & NLP Research</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Apollinaria Poli Nemkova – AI & NLP researcher focusing on large language models, multilingual systems, and responsible AI with applications in humanitarian and governance domains."
+  />
+  <link rel="icon" href="favicon.jpeg" type="image/png">
+
+  <style>
+    /* --------- Base styles --------- */
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f5f5f7;
+      color: #374151;  /* dark grey */
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    a {
+      color: #374151; /* dark grey */
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: none;
+    }
+
+    /* --------- Layout & global --------- */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(248, 250, 252, 0.96); /* softer, gallery-like */
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.4); /* light grey border */
+    }
+
+    .nav-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 1rem 1.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-title {
+      font-family: "Garamond", "Cormorant Garamond", Georgia, "Times New Roman", serif;
+      font-size: 1.05rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #1f2937;
+      white-space: nowrap;
+    }
+    .nav-title a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #1f2937;          /* dark grey */
+      text-decoration: none;
+    }
+    
+    .nav-title a:hover {
+      opacity: 0.85;           /* tiny hover feedback */
+    }
+    
+    .nav-logo {
+      width: 18px;
+      height: 18px;
+      border-radius: 4px;      /* optional, can remove if you want a sharp square */
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.4rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .nav-links a {
+      position: relative;
+      color: #9ca3af;  /* light grey by default */
+      padding-bottom: 0.15rem;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background: #4b5563;  /* mid-grey underline */
+      transition: width 0.25s ease;
+    }
+
+    .nav-links a:hover {
+      color: #4b5563;  /* slightly darker on hover */
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .hero {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 3.5rem 1.5rem 2.75rem;
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .hero h1 {
+      margin: 0 0 0.4rem;
+      font-family: "Garamond", "Cormorant Garamond", Georgia, "Times New Roman", serif;
+      font-size: 2.6rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #1f2937;
+    }
+
+    .hero-subtitle {
+      margin: 0 0 1.2rem;
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #6b7280;
+    }
+
+    .hero p {
+      margin: 0 0 1.5rem;
+      max-width: 40rem;
+      color: #374151;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 0.25rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.6rem 1.5rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      border: 1px solid #374151;
+      background: transparent;
+      color: #374151;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn-primary {
+      background: #374151;
+      color: #f9fafb;
+    }
+
+    .btn:hover {
+      text-decoration: none;
+      background: #111827;
+      border-color: #111827;
+      color: #f9fafb;
+    }
+
+    .hero-image-wrapper {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .hero img {
+      max-width: 360px;
+      width: 120%;
+      border-radius: 24px;
+      border: 1px solid rgba(55, 65, 81, 0.15);
+      box-shadow: 0 22px 55px rgba(15, 23, 42, 0.18);
+      object-fit: cover;
+      background: #e5e7eb;
+    }
+
+    main {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.5rem 3.5rem;
+    }
+
+    section {
+      padding: 2.3rem 0 2.1rem;
+      border-top: 1px solid rgba(148, 163, 184, 0.4);
+    }
+
+    section:first-of-type {
+      border-top: none;
+    }
+
+    section h2 {
+      margin: 0 0 0.85rem;
+      font-family: "Garamond", "Cormorant Garamond", Georgia, "Times New Roman", serif;
+      font-size: 1.35rem;
+      font-weight: 500;
+      letter-spacing: 0.20em;
+      text-transform: uppercase;
+      color: #1f2937;
+    }
+
+    section p {
+      margin: 0 0 0.9rem;
+      max-width: 50rem;
+      color: #374151;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+      gap: 2rem;
+      margin-top: 1.1rem;
+    }
+
+    .subheading {
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+      color: #1f2937;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+      margin: 0.3rem 0 0.9rem;
+      color: #374151;
+    }
+
+    li {
+      margin-bottom: 0.4rem;
+    }
+
+    .meta-note {
+      font-size: 0.88rem;
+      color: #6b7280;
+    }
+
+    /* --------- Footer --------- */
+    footer {
+      border-top: 1px solid rgba(148, 163, 184, 0.4);
+      padding: 1.6rem 1.5rem 2.3rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #6b7280;
+    }
+
+    /* --------- Responsive --------- */
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+        padding-top: 2.8rem;
+      }
+      .hero-image-wrapper {
+        justify-content: flex-start;
+      }
+      .hero img {
+        max-width: 240px;
+      }
+      .two-col {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .nav-inner {
+        justify-content: center;
+        text-align: center;
+      }
+      .nav-title {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 0.3rem;
+      }
+      .nav-links {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .hero-subtitle {
+        font-size: 0.85rem;
+      }
+      body {
+        font-size: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <header>
+    <div class="nav-inner">
+      <div class="nav-title">
+        <a href="#top">
+          <img src="favicon.jpeg" alt="" class="nav-logo" />
+          <span>Apollinaria Poli Nemkova</span>
+        </a>
+      </div>
+     <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#teaching">Teaching</a>
+      <a href="#publications">Publications</a>
+      <a href="#impact">Impact</a>
+      <a href="#talks">Talks</a>          <!-- ← add this line if you want -->
+      <a href="#work-with-me">Work with me</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="top">
+    <div>
+      <h1>Poli Nemkova</h1>
+      <p class="hero-subtitle">
+        AI &amp; NLP Research · Large Language Models · Multilingual Systems
+      </p>
+      <p>
+        I work on the design and evaluation of AI and NLP systems, with a focus on large language models,
+        multilingual and low-resource settings, and how models behave in the wild. My current work spans
+        model evaluation, robustness, and representation learning for text.
+      </p>
+      <p>
+        Many of my projects live in high-stakes domains — humanitarian action, human rights, and governance —
+        where technical decisions intersect with real-world risk. I collaborate with international organizations
+        and NGOs to make advanced language technologies both useful and responsible.
+      </p>
+      <div class="hero-buttons">
+        <a href="https://docs.google.com/document/d/1cH9b_0k_TDv5G1tMst0K4S0JW9k9iBYYIdYP8wvmhaI/edit?usp=sharing" class="btn btn-primary">Download CV</a>
+        <a href="#work-with-me" class="btn">Work with me</a>
+      </div>
+    </div>
+    <div class="hero-image-wrapper">
+      <img src="1.jpg" alt="Portrait of Apollinaria Poli Nemkova" />
+    </div>
+  </section>
+
+  <main>
+    <!-- About -->
+    <section id="about">
+      <h2>About</h2>
+      <p>
+        I am an AI and NLP researcher interested in how language models represent, shape, and sometimes distort
+        our understanding of the world. Methodologically, my work covers large language models, multilingual NLP,
+        and evaluation frameworks that go beyond average accuracy: calibration, robustness, and failure analysis.
+      </p>
+      <p>
+        A recurring thread in my work is application in high-stakes contexts: monitoring risks to civilians,
+        supporting humanitarian decision-making, and informing institutions that operate under uncertainty.
+        I care about building systems that are technically solid, legible to practitioners, and grounded in
+        human rights principles.
+      </p>
+      <p>
+        I’m particularly interested in:
+      </p>
+      <ul>
+        <li>Evaluation and analysis of large language models</li>
+        <li>Multilingual and low-resource NLP</li>
+        <li>Human-centered, responsible AI design</li>
+        <li>Interfaces between AI research, policy, and practice</li>
+      </ul>
+    </section>
+
+    <!-- Research -->
+    <section id="research">
+      <h2>Research</h2>
+      <p>
+        Broadly, I study how AI and NLP models behave across languages, domains, and stakes — and what it takes
+        to make them reliable enough for people who depend on them.
+      </p>
+      <div class="two-col">
+        <div>
+          <p class="subheading">Large Language Models &amp; Evaluation</p>
+          <p>
+            Building evaluation setups for LLMs that capture not only correctness, but also calibration,
+            stability across prompts, and behavior under distribution shifts. This includes high-level metrics,
+            error taxonomies, and qualitative analysis of model reasoning.
+          </p>
+
+          <p class="subheading">Multilingual &amp; Low-Resource NLP</p>
+          <p>
+            Studying how models perform in languages and domains that are under-represented in training data,
+            and developing strategies for transfer, adaptation, and robustness in those settings.
+          </p>
+        </div>
+        <div>
+          <p class="subheading">Applied NLP for Humanitarian &amp; Governance Use Cases</p>
+          <p>
+            Designing NLP pipelines for open-source information monitoring, summarization, and risk signals that can
+            support humanitarian actors, human rights defenders, and policy institutions — with an emphasis on
+            traceability and uncertainty.
+          </p>
+
+          <p class="subheading">Data &amp; Modeling for Social Systems</p>
+          <p>
+            Working with news, event, and social media data to model social and political dynamics, including
+            forecasting and early warning components, while being explicit about the limits of what models can see.
+          </p>
+        </div>
+      </div>
+      <p class="meta-note">
+        For a full list of ongoing and past projects, see <a href="#publications">Publications</a> and
+        <a href="#thoughts">Thoughts</a>.
+      </p>
+    </section>
+
+    <!-- Education -->
+    <section id="education">
+      <h2>Education</h2>
+      <ul>
+        <li>
+          <strong>Ph.D. Candidate in Computer Science (AI)</strong>, University of North Texas, Denton, TX, USA<br />
+          <span class="meta-note">2020 – expected Spring 2026 · GPA: 4.0/4.0</span><br />
+          Dissertation focus: <em>Agentic and Multilingual Neural Architectures for Forecasting and
+          Decision-Support in Unstructured Text Streams</em> (advisors: Rodney D. Nielsen, Mark V. Albert).<br />
+          Lead of AI for Social Good research group and founder of Lab 42, supervising ~20 undergraduate and master’s students.
+        </li>
+        <li>
+          <strong>M.S. in Computer Science (AI)</strong>, University of North Texas, Denton, TX, USA<br />
+          <span class="meta-note">2020 – 2022 · GPA: 4.0/4.0</span><br />
+          Coursework in NLP, computational linguistics, machine learning, deep learning, data mining, big data, and software development for AI.<br />
+          Founder of UNT Startup Club.
+        </li>
+        <li>
+          <strong>B.S. in Economics</strong>, Belarus State University, Minsk, Belarus<br />
+          <span class="meta-note">2009 – 2015 · GPA: 8/10</span><br />
+          Coursework in data economics, statistics, management, database management, operations research, and policy.<br />
+          Vice President of Student Council.
+        </li>
+      </ul>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience">
+      <h2>Experience</h2>
+      <ul>
+        <li>
+          <strong>Adjunct Faculty, Department of Computer Science</strong> — University of Texas at Dallas, Dallas, TX, USA<br />
+          <span class="meta-note">Aug 2025 – present</span><br />
+          Teaching senior-level capstone courses (CS 4485) with a focus on AI, NLP, and machine learning.
+        </li>
+        <li>
+          <strong>Data Science Fellow</strong> — United Nations Development Programme (UNDP), New York, NY, USA<br />
+          <span class="meta-note">Aug 2023 – present</span><br />
+          Conflict prediction research at the Risk Anticipation Hub, developing ML and NLP systems for early prediction
+          of civil and military unrest in the Horn of Africa region; designing experiments, building models,
+          and presenting findings to stakeholders.
+        </li>
+        <li>
+          <strong>AI Product Manager &amp; Researcher</strong> — AI.Fashion (Y Combinator startup), Los Angeles, CA, USA<br />
+          <span class="meta-note">Aug 2023 – Jan 2025</span><br />
+          Managed international, cross-functional teams to build AI products for major fashion brands, bridging
+          technical development, UX/UI design, and business strategy in a fast-paced startup environment.
+        </li>
+        <li>
+          <strong>Teaching Assistant &amp; Fellow</strong> — University of North Texas, Denton, TX, USA<br />
+          <span class="meta-note">Aug 2020 – present</span><br />
+          Teaching labs in C/C++, and co-teaching graduate courses in AI, software development for AI,
+          big data &amp; data science, and machine learning; lecturing on AI ethics.
+        </li>
+        <li>
+          <strong>Research Assistant</strong> — Human/Machine Intelligence and Language Technologies (HiLT) Lab, UNT<br />
+          <span class="meta-note">Sep 2019 – Aug 2024</span><br />
+          Worked on ML and NLP projects in computational linguistics, focusing on socially impactful applications.
+        </li>
+      </ul>
+    </section>
+
+    <!-- NGO / Impact -->
+    <section id="impact">
+      <h2>NGO &amp; Impact</h2>
+      <p>
+        I am in the process of founding a nonprofit initiative that helps humanitarian organizations and
+        social-impact institutions use AI and data science in a way that is practical, grounded, and responsible.
+      </p>
+      <p>
+        Focus areas include:
+      </p>
+      <ul>
+        <li>Lightweight AI tools for crisis monitoring and situational awareness</li>
+        <li>Text analytics for human rights and protection-of-civilians monitoring</li>
+        <li>Capacity building on AI workflows for NGOs and international organizations</li>
+        <li>Guidance on responsible and safe AI use in complex environments</li>
+      </ul>
+      <p class="meta-note">
+        A formal launch and more information will follow. If you are interested in collaborating or supporting
+        this work, please reach out via <a href="#contact">Contact</a> or <a href="#work-with-me">Work with me</a>.
+      </p>
+    </section>
+
+    <!-- Teaching -->
+    <section id="teaching">
+      <h2>Teaching</h2>
+      <p>
+        I enjoy teaching and mentoring at the intersection of computer science, data science, and real-world impact.
+        In my classes and supervision, I try to combine solid technical foundations with an honest look at where and
+        how AI systems should (and should not) be used.
+      </p>
+      <ul>
+        <li>
+          <strong>UT Dallas (CS 4485 – Senior Design)</strong> — Capstone class for ~60 seniors, focusing on AI/NLP projects.
+        </li>
+        <li>
+          <strong>UNT (CSCE 5200 – Big Data &amp; Data Science)</strong> — Co-taught graduate big data course for 50–80+ students.
+        </li>
+        <li>
+          <strong>UNT (CSCE 5215 – Machine Learning)</strong> — Co-taught for ~40 master’s students; lectured AI ethics section.
+        </li>
+        <li>
+          <strong>UNT (CSCE 5214 – Software Development for AI)</strong> — Co-taught graduate course on software engineering for AI.
+        </li>
+        <li>
+          <strong>UNT (CSCE 5210 – Introduction to Artificial Intelligence)</strong> — Co-taught graduate AI foundations course.
+        </li>
+        <li>
+          <strong>UNT (CSCE 1030 – C/C++ Programming)</strong> — Taught labs for almost 90 undergraduate students.
+        </li>
+      </ul>
+      <p class="meta-note">
+        I also lead Lab 42, an informal AI/NLP for Social Good research group with around 20 undergraduate and master’s students.
+      </p>
+    </section>
+
+    <!-- Publications -->
+    <section id="publications">
+      <h2>Publications</h2>
+      <p>
+        Selected work related to AI &amp; NLP, with a focus on multilingual modeling, evaluation, and applications
+        in humanitarian and governance settings.
+      </p>
+      <ul>
+        <li>
+          <strong>Cross-Lingual Stability and Bias in Instruction-Tuned Language Models for Humanitarian NLP</strong><br />
+          P. Nemkova, A. Adhikari, M. Pearson, V. Krishna Sadu, A. V. Mark.<br />
+          <span class="meta-note">Under submission, 2025.</span>
+        </li>
+        <li>
+          <strong>Agentic Multilingual NLP for Conflict Forecasting from Open-Source Text Streams</strong><br />
+          P. A. Nemkova, M. V. Albert.<br />
+          <span class="meta-note">Women in Machine Learning (WiML) Workshop @ NeurIPS, 2025.</span>
+        </li>
+        <li>
+          <strong>Comparing LLM Text Annotation Skills: A Study on Human Rights Violations in Social Media Data</strong><br />
+          P. A. Nemkova, S. Ubani, M. V. Albert.<br />
+          <span class="meta-note">AAAI Conference on Artificial Intelligence, 2025.</span>
+        </li>
+        <li>
+          <strong>NLP for Social Good: A Survey of Challenges, Opportunities, and Responsible Deployment</strong><br />
+          A. Karamolegkou, A. Borah, E. Cho, S. R. Choudhury, M. Galletti, R. Ghosh, P. Gupta, O. Ignat, P. Kargupta,
+          N. Kotonya, H. Lamba, S.-J. Lee, A. Mangla, I. Mondal, D. Nazarova, P. Nemkova, D. Pisarevskaya, N. Rizwan,
+          N. Sabri, D. Stammbach, A. Steinberg, D. Tomás, S. R. Wilson, B. Yi, J. H. Zhu, A. Zubiaga, A. Søgaard,
+          A. Fraser, Z. Jin, R. Mihalcea, J. R. Tetreault, D. Dementieva.<br />
+          <span class="meta-note">2025.</span>
+        </li>
+        <li>
+          <strong>Detecting Human Rights Violations on Social Media Using Machine Learning</strong><br />
+          P. A. Nemkova, S. Polat, S. Ubani, K. Nguen, R. Nielsen.<br />
+          <span class="meta-note">AAAI Conference on Artificial Intelligence, 2025.</span>
+        </li>
+        <li>
+          <strong>Do Large Language Models Know Conflict? Investigating Parametric vs. Non-Parametric Knowledge of LLMs for Conflict Forecasting</strong><br />
+          P. A. Nemkova, S. C. Lingareddy, S. Ray Choudhury, M. V. Albert.<br />
+          <span class="meta-note">2025.</span>
+        </li>
+        <li>
+          <strong>Towards Automated Situation Awareness: A RAG-Based Framework for Peacebuilding Reports</strong><br />
+          P. A. Nemkova, S. O. Polat, R. I. Jahan, S. R. Choudhury, S. Lee, S. Sarkar, M. V. Albert.<br />
+          <span class="meta-note">Under submission, 2025.</span>
+        </li>
+        <li>
+          <strong>Synthetic Adaptive Guided Embeddings (SAGE): A Novel Knowledge Distillation Method</strong><br />
+          S. O. Polat, P. A. Nemkova, M. V. Albert.<br />
+          <span class="meta-note">Under submission, 2025. [<a href="https://arxiv.org/abs/2508.14783" target="_blank" rel="noopener noreferrer">arXiv:2508.14783</a>]</span>
+        </li>
+        <li>
+          <strong>Improved Bitcoin Price Prediction based on COVID-19 Data</strong><br />
+          P. Nemkova, R. Moreira.<br />
+          <span class="meta-note">IJCAI–PRICAI, 2021.</span>
+        </li>
+      </ul>
+      <p class="meta-note">
+        Full list of publications is available on my
+        <a href="https://scholar.google.com/citations?user=j_ttzuAAAAAJ&hl=en"
+           target="_blank" rel="noopener noreferrer">Google Scholar profile</a>
+        and in my CV.
+      </p>
+    </section>
+
+    <!-- Thoughts -->
+    <section id="thoughts">
+      <h2>Thoughts</h2>
+      <p>
+        Occasional essays and notes on AI, language models, research practice, and working with data in
+        high-stakes domains.
+      </p>
+      <ul>
+        <li>
+          <strong>Why AI Needs a Humanitarian Imagination</strong><br />
+          <span class="meta-note">On why “AI for good” needs concrete architectures, institutions, and constraints — not just slogans.</span>
+        </li>
+        <li>
+          <strong>What Language Models Miss in Crisis Settings</strong><br />
+          <span class="meta-note">Reflections on failure modes of LLMs in noisy, multilingual, politically sensitive contexts.</span>
+        </li>
+      </ul>
+      <p class="meta-note">
+        Longer essays may appear on platforms such as Medium or organizational blogs; links will be added here.
+      </p>
+    </section>
+    
+    <!-- Talks -->
+    <section id="talks">
+      <h2>Talks</h2>
+      <p>
+        Selected invited talks and public engagements on AI, NLP, conflict, and AI for social good.
+      </p>
+      <ul>
+        <li>
+          <strong>Invited Talk, Department of Mathematics</strong> — Southern Methodist University (SMU), Dallas, TX<br />
+          <span class="meta-note">October 2025.</span>
+        </li>
+        <li>
+          <strong>Lecture on AI Applications in Health</strong> — Texas Tech University Health Sciences Center, Dallas, TX<br />
+          <span class="meta-note">October 2025.</span>
+        </li>
+        <li>
+          <strong>AI for Social Good Workshop (Host and Lead)</strong> — São Paulo / San Paolo, Brazil<br />
+          <span class="meta-note">August 2025.</span>
+        </li>
+        <li>
+          <strong>AAAI 2025 – AI for Social Impact Track</strong><br />
+          <span class="meta-note">
+            Two talks on AI for social impact across finance, social media, and crime prevention, February 2025.
+          </span>
+        </li>
+        <li>
+          <strong>Towards Peace through AI Research</strong> — Conflict and Resilience Research Institute Canada (CRRIC), University of Winnipeg<br />
+          <span class="meta-note">January 2023.</span>
+        </li>
+        <li>
+          <strong>Algorithms and AI as an Artistic Protocol</strong> — Performance at “Education as Experimentation 3” Symposium<br />
+          <span class="meta-note">
+            Onstead Institute &amp; Department of Art Education, University of North Texas, October 2022.
+          </span>
+        </li>
+        <li>
+          <strong>AI in Media Warfare</strong> — CRRIC, University of Winnipeg<br />
+          <span class="meta-note">August 2022.</span>
+        </li>
+        <li>
+          <strong>Guest Speaker on Data Science &amp; AI</strong> — “Data Science in Academia”<br />
+          <span class="meta-note">January 2022.</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Service / Grants / Awards -->
+    <section id="service">
+      <h2>Service, Grants &amp; Awards</h2>
+
+      <p class="subheading">Grants &amp; Engagement</p>
+      <ul>
+        <li>
+          <strong>M³ LLM Project – Mapping and Mitigating Misinformation Through LLMs in Diasporic &amp; Indigenous Communities</strong><br />
+          <span class="meta-note">Digital Citizen Contribution Program, Department of Canadian Heritage, Canada – under review, Aug 2025. Collaboration with Conflict and Resilience Research Institute (CRRIC).</span>
+        </li>
+        <li>
+          <strong>Book Contract</strong> — Routledge (Taylor &amp; Francis Group)<br />
+          <span class="meta-note">Book on AI and conflict / resilience, in collaboration with CRRIC, May 2025.</span>
+        </li>
+        <li>
+          <strong>Truth Guard Project</strong> — Digital Citizen Contribution Program, Department of Canadian Heritage, Canada<br />
+          <span class="meta-note">Project on building resilience against mis/disinformation and transnational repression for Canadians, in collaboration with CRRIC, Nov 2023.</span>
+        </li>
+      </ul>
+
+      <p class="subheading">Conference Reviewing &amp; Program Committees</p>
+      <ul>
+        <li>
+          <strong>Program Committee</strong> — AIES 2025.
+        </li>
+        <li>
+          <strong>Reviewer</strong> — ICLR 2025, ACL ARR 2025, EMNLP 2023, ICECET 2025, ACM (2021) and others.
+        </li>
+      </ul>
+
+      <p class="subheading">Awards</p>
+      <ul>
+        <li>
+          <strong>DAAD RISE Professional Scholarship</strong> — Germany, January 2021.
+        </li>
+        <li>
+          <strong>Grace Hopper Celebration Scholarship</strong> — 2020 and 2021.
+        </li>
+      </ul>
+    </section>
+
+    <!-- Work with me -->
+    <section id="work-with-me">
+      <h2>Work with me</h2>
+      <p>
+        I collaborate with researchers, NGOs, international organizations, and policy institutions on projects at
+        the intersection of AI, NLP, and societal impact.
+      </p>
+      <ul>
+        <li>
+          <strong>Research collaborations</strong> on large language models, multilingual NLP, and model evaluation.
+        </li>
+        <li>
+          <strong>AI evaluation and responsible deployment</strong> – designing evaluation setups, stress tests,
+          and workflows for high-stakes domains.
+        </li>
+        <li>
+          <strong>Applied projects with humanitarian and governance actors</strong> – from early-stage prototypes
+          to analytical pipelines built around real constraints and data.
+        </li>
+        <li>
+          <strong>Talks, guest lectures, and training sessions</strong> on AI &amp; NLP, humanitarian tech, and
+          critical perspectives on AI in practice.
+        </li>
+      </ul>
+      <p>
+        To discuss a project, invitation, or idea, please contact me using the details below.
+      </p>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>
+        For collaborations, speaking invitations, or media inquiries, you can reach me at:
+      </p>
+      <p>
+        <strong>poli@nemkova.com</strong>
+      </p>
+      <p>
+        You can also find me on:
+      </p>
+      <ul>
+        <li><a href="https://www.linkedin.com/in/nemkova/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="https://x.com/postpolinism" target="_blank" rel="noopener noreferrer">Twitter / X</a></li>
+        <li><a href="https://scholar.google.com/citations?user=j_ttzuAAAAAJ&hl=en"
+               target="_blank" rel="noopener noreferrer">Google Scholar</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    &copy; <span id="year"></span> Apollinaria Poli Nemkova. All rights reserved.
+  </footer>
+
+  <script>
+    // Auto-update year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
