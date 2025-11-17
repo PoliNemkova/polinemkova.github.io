@@ -121,6 +121,127 @@
       width: 100%;
     }
 
+    /* --- nav title + logo --- */
+.nav-title a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #2f3640;
+  text-decoration: none;
+}
+
+.nav-title a:hover {
+  opacity: 0.85;
+}
+
+.nav-logo {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  display: block;
+}
+
+/* --- existing nav base --- */
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.6rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.nav-links a {
+  color: #6b7280;
+}
+
+.nav-links a:hover {
+  color: #111827;
+}
+
+/* --- hamburger button --- */
+.nav-toggle {
+  display: none;              /* desktop: hidden */
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: rgba(248, 249, 252, 0.95);
+  padding: 0;
+  margin-left: auto;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-toggle-bar,
+.nav-toggle-bar::before,
+.nav-toggle-bar::after {
+  content: "";
+  display: block;
+  width: 16px;
+  height: 2px;
+  border-radius: 999px;
+  background: #4b5563;
+  position: relative;
+  transition: transform 0.18s ease, opacity 0.18s ease, top 0.18s ease,
+    bottom 0.18s ease;
+}
+
+.nav-toggle-bar::before {
+  position: absolute;
+  top: -5px;
+}
+
+.nav-toggle-bar::after {
+  position: absolute;
+  bottom: -5px;
+}
+
+/* X animation when open */
+header.nav-open .nav-toggle-bar {
+  transform: rotate(45deg);
+}
+
+header.nav-open .nav-toggle-bar::before {
+  top: 0;
+  transform: rotate(-90deg);
+}
+
+header.nav-open .nav-toggle-bar::after {
+  bottom: 0;
+  opacity: 0;
+}
+
+/* --- mobile layout --- */
+@media (max-width: 900px) {
+  .nav-inner {
+    align-items: center;
+  }
+
+  .nav-toggle {
+    display: inline-flex;        /* show hamburger */
+  }
+
+  .nav-links {
+    display: none;               /* hide by default */
+    flex-direction: column;
+    width: 100%;
+    padding-top: 0.75rem;
+    margin-top: 0.4rem;
+    border-top: 1px solid rgba(15, 23, 42, 0.06);
+  }
+
+  .nav-links a {
+    padding: 0.2rem 0;
+  }
+
+  header.nav-open .nav-links {
+    display: flex;               /* show when toggled */
+  }
+}
+
+
     .hero {
       max-width: 1120px;
       margin: 0 auto;
@@ -315,27 +436,33 @@
 </head>
 <body>
   <!-- Navigation -->
-  <header>
-    <div class="nav-inner">
-      <div class="nav-title">
-        <a href="#top">
-          <img src="favicon.jpeg" alt="" class="nav-logo" />
-          <span>Apollinaria Poli Nemkova</span>
-        </a>
-      </div>
-     <nav class="nav-links">
+ <header>
+  <div class="nav-inner">
+    <div class="nav-title">
+      <a href="#top">
+        <img src="favicon.jpeg" alt="" class="nav-logo" />
+        <span>Apollinaria Poli Nemkova</span>
+      </a>
+    </div>
+
+    <!-- Hamburger button (shown only on small screens) -->
+    <button class="nav-toggle" aria-label="Toggle navigation">
+      <span class="nav-toggle-bar"></span>
+    </button>
+
+    <nav class="nav-links">
       <a href="#about">About</a>
       <a href="#research">Research</a>
       <a href="#teaching">Teaching</a>
       <a href="#publications">Publications</a>
       <a href="#impact">Impact</a>
-      <a href="#talks">Talks</a>          <!-- ← add this line if you want -->
+      <a href="#talks">Talks</a>
       <a href="#work-with-me">Work with me</a>
       <a href="#contact">Contact</a>
     </nav>
+  </div>
+</header>
 
-    </div>
-  </header>
 
   <!-- Hero -->
   <section class="hero" id="top">
@@ -782,5 +909,17 @@
     // Auto-update year in footer
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+
+  <script>
+    const navToggle = document.querySelector('.nav-toggle');
+    const headerEl = document.querySelector('header');
+  
+    if (navToggle && headerEl) {
+      navToggle.addEventListener('click', () => {
+        headerEl.classList.toggle('nav-open');
+      });
+    }
+  </script>
+
 </body>
 </html>
